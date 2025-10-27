@@ -16,8 +16,8 @@ def health():
 def mad_handshake():
     """
     Verifica:
-      - se a OPENAI_API_KEY está presente
-      - se conseguimos falar com a API da OpenAI (lista alguns modelos)
+    - se a OPENAI_API_KEY está presente
+    - se conseguimos falar com a API da OpenAI (lista alguns modelos)
     """
     key = os.getenv("OPENAI_API_KEY")
     if not key:
@@ -26,13 +26,7 @@ def mad_handshake():
     try:
         client = OpenAI(api_key=key)
         models = client.models.list()
-        sample = [m.id for m in models.data[:5]]  # pega só alguns para resposta leve
-        return {
-           
-    try:
-        client = OpenAI(api_key=key)
-        models = client.models.list()
-        sample = [m.id for m in models.data[:5]]  # pega só alguns para resposta leve
+        sample = [m.id for m in models.data[:5]]
         return {
             "ok": True,
             "models": sample,
